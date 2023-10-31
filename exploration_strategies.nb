@@ -1,0 +1,473 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19241,        465]
+NotebookOptionsPosition[     13994,        376]
+NotebookOutlinePosition[     14384,        392]
+CellTagsIndexPosition[     14341,        389]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Exploration Strategies", "Title",
+ CellChangeTimes->{{3.906814537285611*^9, 3.906814545475368*^9}, 
+   3.907074430772407*^9},ExpressionUUID->"031c35c0-ec6a-4082-a9c9-\
+cb8fad263a7a"],
+
+Cell[CellGroupData[{
+
+Cell["Variation in initial condition", "Section",
+ CellChangeTimes->{{3.9068145481469927`*^9, 
+  3.9068145577162647`*^9}},ExpressionUUID->"b21f52be-35d7-44e7-9ff0-\
+7264d8a70a12"],
+
+Cell["\<\
+Look for measure of importance in causal graph for different elements in \
+initial condition\
+\>", "Item",
+ CellChangeTimes->{{3.90681456420966*^9, 
+  3.9068145946759787`*^9}},ExpressionUUID->"064116fa-b8f8-4729-bc00-\
+720fb1d5128e"],
+
+Cell["Change initial condition proportionally to importance", "Item",
+ CellChangeTimes->{{3.90681456420966*^9, 
+  3.906814608447729*^9}},ExpressionUUID->"d9039cfe-c258-4f21-a13f-\
+4a73a5f45c9a"],
+
+Cell["What ways I can measure significance in causal graphs?", "Item",
+ CellChangeTimes->{{3.90681456420966*^9, 
+  3.9068146411161623`*^9}},ExpressionUUID->"9c959da0-126c-44c9-a264-\
+5accb868ac01"],
+
+Cell["What ways can I vary the initial condition in small ways?", "Item",
+ CellChangeTimes->{{3.90681456420966*^9, 3.906814615349441*^9}, {
+  3.906814657706997*^9, 
+  3.906814673334683*^9}},ExpressionUUID->"eac1e4c3-baee-48e1-937b-\
+91d6f8e74f99"],
+
+Cell["\<\
+What are the differences in behavior between initial conditions like for the \
+same rules?\
+\>", "Item",
+ CellChangeTimes->{{3.90681456420966*^9, 3.906814615349441*^9}, {
+  3.906814657706997*^9, 3.9068146846006203`*^9}, {3.906814746737365*^9, 
+  3.90681474673755*^9}},ExpressionUUID->"91b4dfdb-7778-4ade-96e2-\
+8b62021d9fa9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Variation in replacement rules", "Section",
+ CellChangeTimes->{{3.906814689762773*^9, 3.906814694493525*^9}, 
+   3.906814918905479*^9},ExpressionUUID->"9fc556d6-402e-48ab-b9ee-\
+0b27368d30df"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Measure application of different rule replacements in state evolution\
+\>", "Item",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.90681471983855*^9}},ExpressionUUID->"1aa096c0-d55a-4d0c-946e-\
+6838960a7dd4"],
+
+Cell["Count applications", "Subitem",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.906814729700366*^9}},ExpressionUUID->"cbc4de39-3f63-4054-8d59-\
+461a76d3359e"],
+
+Cell["Measure significance of replacements", "Subitem",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.906814754560288*^9}},ExpressionUUID->"0060a92b-d54a-4d06-950d-\
+2359834e92bb"]
+}, Open  ]],
+
+Cell["Modify rule proportional to significances", "Item",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.906814771285462*^9}},ExpressionUUID->"536b1ad6-80fb-4753-b589-\
+3c33cb7dbaef"],
+
+Cell["Add or remove pieces of the rule", "Item",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.906814822311212*^9}},ExpressionUUID->"b18286a6-6289-44ea-bb61-\
+afe28cde9aa1"],
+
+Cell["\<\
+How can I make incremental changes for rules with small signatures?\
+\>", "Item",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.9068148563754177`*^9}},ExpressionUUID->"4219d83f-c849-496c-9f71-\
+f11535c04fff"],
+
+Cell["\<\
+Does using rules with more pieces allow for more granularity when modifying \
+them?\
+\>", "Item",
+ CellChangeTimes->{{3.906814696428584*^9, 
+  3.906814896830084*^9}},ExpressionUUID->"c1e3f166-2947-4d99-8762-\
+eede26f95540"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Possible Measures of Hypergraph Behavior", "Section",
+ CellChangeTimes->{{3.907762731006358*^9, 
+  3.9077627345504932`*^9}},ExpressionUUID->"09da8932-b0b1-4c00-8f3b-\
+dd42e035432f"],
+
+Cell[CellGroupData[{
+
+Cell["Dimension", "Item",
+ CellChangeTimes->{{3.9077627370174513`*^9, 
+  3.907762739150227*^9}},ExpressionUUID->"ca9643df-2e5b-4d33-80be-\
+e9d28f9f9b19"],
+
+Cell[CellGroupData[{
+
+Cell["Requires large collection of limits", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762744929221*^9}, {
+  3.907762932040247*^9, 
+  3.907762932040721*^9}},ExpressionUUID->"05e48db2-25b4-40d8-808e-\
+60d694a3a06c"],
+
+Cell["Large enough graph size", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762744929221*^9}, {
+  3.907762933953616*^9, 
+  3.90776293592514*^9}},ExpressionUUID->"a8ae592e-c43f-4d6a-be5e-\
+ef26b4a7efa4"],
+
+Cell["Proper starting vertex / vertices", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762744929221*^9}, {
+  3.907762933953616*^9, 
+  3.907762953889517*^9}},ExpressionUUID->"ef648ffc-8100-463f-baf0-\
+58436b2a86bb"]
+}, Open  ]],
+
+Cell["Single scalar makes it easy to use if calculable", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 
+  3.907762761747422*^9}},ExpressionUUID->"6c09ccde-9f3d-4e10-b642-\
+5cbdbf27e24f"],
+
+Cell["\<\
+High potential utility for potential models of universe or other phenomena\
+\>", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 
+  3.907762779664032*^9}},ExpressionUUID->"654c6d8d-e5a9-4466-979c-\
+523319ef2ccd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Local graph neighborhoods", "Item",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869103269*^9, 
+  3.907762869103773*^9}},ExpressionUUID->"d6817931-71de-456e-8136-\
+05390cc004d7"],
+
+Cell[CellGroupData[{
+
+Cell["Can be represented as distribution over states", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 
+  3.907762874895048*^9}},ExpressionUUID->"412a9b01-fc83-4a8a-a0bb-\
+8cc47683e9f1"],
+
+Cell["Infinitely many possible states", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 
+  3.907762896357087*^9}},ExpressionUUID->"1ae13655-0c83-477c-aae3-\
+1aa0bd2cec67"]
+}, Open  ]],
+
+Cell["\<\
+Represent similarity between systems as some sort of statistical divergence\
+\>", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 
+  3.907762919553228*^9}},ExpressionUUID->"c1767659-af34-4846-8bb5-\
+e2a1a854a4ef"],
+
+Cell["Could easily describe simple graphs", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763591723394*^9, 
+  3.907763591723765*^9}},ExpressionUUID->"27e88d40-d3c6-4114-b47c-\
+da15c20e44fc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graph measures and metrics", "Item",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.907763599876484*^9}},ExpressionUUID->"5f85a626-ac79-45f9-bf0f-\
+bd92d81974ef"],
+
+Cell["\<\
+https://reference.wolfram.com/language/guide/GraphMeasures.html\
+\>", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.907763607411525*^9}},ExpressionUUID->"8f2fa070-f52f-4230-9c84-\
+bd729478e41a"],
+
+Cell["Vertex and edge counts", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.907763612641526*^9}},ExpressionUUID->"d7180029-2228-4390-9fcb-\
+9419b31fe3f6"],
+
+Cell["Vertex degrees", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.9077636170753517`*^9}},ExpressionUUID->"1d048c7c-48b9-4623-b59b-\
+d3a136fad312"],
+
+Cell["Distance measures", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.9077636205368023`*^9}},ExpressionUUID->"b75f5484-acbd-467e-a4c9-\
+116e534c5d63"],
+
+Cell["Connectivity measures", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.907763624481395*^9}},ExpressionUUID->"388bfee5-5f0c-4204-a87d-\
+635685dd4be3"],
+
+Cell["Centrality measures", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.9077636265246468`*^9}},ExpressionUUID->"6d0770c8-30e8-489d-aa13-\
+97547afeb083"],
+
+Cell["Reciprocity and transitivity", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.907763632837451*^9}},ExpressionUUID->"2ae30698-e925-46d4-a283-\
+d63150cbe40f"],
+
+Cell["Homophily, assortative mixing, and similarity", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763059315887*^9}, {3.907763592855733*^9, 
+  3.9077636380298147`*^9}},ExpressionUUID->"b6a22cff-dda4-438f-b9ac-\
+990e13a35469"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Machine learning methods", "Item",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630637803907`*^9}, {3.9077637421890497`*^9, 
+  3.9077637421893873`*^9}},ExpressionUUID->"a58e6ed0-5a8a-48d2-890f-\
+1b6f87faccef"],
+
+Cell[CellGroupData[{
+
+Cell["Could describe qualitative graph behavior", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630637803907`*^9}, {3.907763742834568*^9, 
+  3.907763752731637*^9}},ExpressionUUID->"8acc3aec-031b-4333-8052-\
+a132272bd3a3"],
+
+Cell["Complexity classes analogous to CA classification", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630637803907`*^9}, {3.907763742834568*^9, 
+  3.907763800051298*^9}},ExpressionUUID->"59782d1d-6f82-4051-8c6b-\
+38e0205ea30b"],
+
+Cell["Visual methods based on clustering model plots", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630637803907`*^9}, {3.907763742834568*^9, 
+  3.907763826818554*^9}},ExpressionUUID->"801ce581-abfb-4878-a061-\
+b8b86a68cd65"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Could use variety of inputs", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763070083907*^9}},ExpressionUUID->"1d4e149d-1b2d-4ac6-8110-\
+011f16ae0046"],
+
+Cell["Graph theoretic measures", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763075444359*^9}},ExpressionUUID->"1bb137f0-8d15-4048-b198-\
+71bde2f9c495"],
+
+Cell["State distributions", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763078919071*^9}},ExpressionUUID->"b8aaf39e-a94a-4314-8705-\
+36ddc66b6656"],
+
+Cell["Simple counting information (nodes, edges, growth)", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630911885357`*^9}, {3.90776387057661*^9, 
+  3.907763870576893*^9}},ExpressionUUID->"601955cc-6cc1-4b0d-b59a-\
+57c8bbcdd194"],
+
+Cell["Raw graph data", "Subsubitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.9077630911885357`*^9}, {3.907763870833782*^9, 
+  3.907763882831881*^9}},ExpressionUUID->"4dcd42aa-256a-490f-ba5f-\
+a275c1350122"]
+}, Open  ]],
+
+Cell["\<\
+Supervised version requires human-labeled dataset of graph classifications\
+\>", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763095307308*^9}, {3.907763312376787*^9, 3.9077633372155848`*^9}, {
+  3.907763899041152*^9, 
+  3.907763907738564*^9}},ExpressionUUID->"957a5d5b-66a0-4181-a19c-\
+af5b99cf4f07"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Information theoretic methods", "Item",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763095307308*^9}, {3.907763312376787*^9, 3.9077633372155848`*^9}, {
+  3.907763899041152*^9, 
+  3.907763915817482*^9}},ExpressionUUID->"69f31663-1df3-4738-9ba8-\
+435611c4ccab"],
+
+Cell["Compressibility", "Subitem",
+ CellChangeTimes->{{3.9077627370174513`*^9, 3.907762808335333*^9}, {
+  3.907762869417777*^9, 3.9077629189836607`*^9}, {3.9077630465776653`*^9, 
+  3.907763095307308*^9}, {3.907763312376787*^9, 3.9077633372155848`*^9}, {
+  3.907763899041152*^9, 
+  3.907763918073271*^9}},ExpressionUUID->"60d9ff9a-968a-4422-844a-\
+64731870023c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{717, 847},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3462a3e3-7872-4153-9f81-908f1e2a27d1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 188, 3, 98, "Title",ExpressionUUID->"031c35c0-ec6a-4082-a9c9-cb8fad263a7a"],
+Cell[CellGroupData[{
+Cell[793, 29, 179, 3, 67, "Section",ExpressionUUID->"b21f52be-35d7-44e7-9ff0-7264d8a70a12"],
+Cell[975, 34, 243, 6, 32, "Item",ExpressionUUID->"064116fa-b8f8-4729-bc00-720fb1d5128e"],
+Cell[1221, 42, 194, 3, 32, "Item",ExpressionUUID->"d9039cfe-c258-4f21-a13f-4a73a5f45c9a"],
+Cell[1418, 47, 197, 3, 32, "Item",ExpressionUUID->"9c959da0-126c-44c9-a264-5accb868ac01"],
+Cell[1618, 52, 247, 4, 32, "Item",ExpressionUUID->"eac1e4c3-baee-48e1-937b-91d6f8e74f99"],
+Cell[1868, 58, 335, 7, 32, "Item",ExpressionUUID->"91b4dfdb-7778-4ade-96e2-8b62021d9fa9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2240, 70, 198, 3, 67, "Section",ExpressionUUID->"9fc556d6-402e-48ab-b9ee-0b27368d30df"],
+Cell[CellGroupData[{
+Cell[2463, 77, 218, 5, 32, "Item",ExpressionUUID->"1aa096c0-d55a-4d0c-946e-6838960a7dd4"],
+Cell[2684, 84, 163, 3, 27, "Subitem",ExpressionUUID->"cbc4de39-3f63-4054-8d59-461a76d3359e"],
+Cell[2850, 89, 181, 3, 27, "Subitem",ExpressionUUID->"0060a92b-d54a-4d06-950d-2359834e92bb"]
+}, Open  ]],
+Cell[3046, 95, 183, 3, 32, "Item",ExpressionUUID->"536b1ad6-80fb-4753-b589-3c33cb7dbaef"],
+Cell[3232, 100, 174, 3, 32, "Item",ExpressionUUID->"b18286a6-6289-44ea-bb61-afe28cde9aa1"],
+Cell[3409, 105, 219, 5, 32, "Item",ExpressionUUID->"4219d83f-c849-496c-9f71-f11535c04fff"],
+Cell[3631, 112, 233, 6, 32, "Item",ExpressionUUID->"c1e3f166-2947-4d99-8762-eede26f95540"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3901, 123, 187, 3, 67, "Section",ExpressionUUID->"09da8932-b0b1-4c00-8f3b-dd42e035432f"],
+Cell[CellGroupData[{
+Cell[4113, 130, 153, 3, 32, "Item",ExpressionUUID->"ca9643df-2e5b-4d33-80be-e9d28f9f9b19"],
+Cell[CellGroupData[{
+Cell[4291, 137, 231, 4, 27, "Subitem",ExpressionUUID->"05e48db2-25b4-40d8-808e-60d694a3a06c"],
+Cell[4525, 143, 221, 4, 25, "Subsubitem",ExpressionUUID->"a8ae592e-c43f-4d6a-be5e-ef26b4a7efa4"],
+Cell[4749, 149, 232, 4, 25, "Subsubitem",ExpressionUUID->"ef648ffc-8100-463f-baf0-58436b2a86bb"]
+}, Open  ]],
+Cell[4996, 156, 195, 3, 27, "Subitem",ExpressionUUID->"6c09ccde-9f3d-4e10-b642-5cbdbf27e24f"],
+Cell[5194, 161, 229, 5, 27, "Subitem",ExpressionUUID->"654c6d8d-e5a9-4466-979c-523319ef2ccd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5460, 171, 218, 4, 32, "Item",ExpressionUUID->"d6817931-71de-456e-8136-05390cc004d7"],
+Cell[CellGroupData[{
+Cell[5703, 179, 242, 4, 27, "Subitem",ExpressionUUID->"412a9b01-fc83-4a8a-a0bb-8cc47683e9f1"],
+Cell[5948, 185, 230, 4, 25, "Subsubitem",ExpressionUUID->"1ae13655-0c83-477c-aae3-1aa0bd2cec67"]
+}, Open  ]],
+Cell[6193, 192, 279, 6, 27, "Subitem",ExpressionUUID->"c1767659-af34-4846-8bb5-e2a1a854a4ef"],
+Cell[6475, 200, 330, 5, 27, "Subitem",ExpressionUUID->"27e88d40-d3c6-4114-b47c-da15c20e44fc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6842, 210, 318, 5, 32, "Item",ExpressionUUID->"5f85a626-ac79-45f9-bf0f-bd92d81974ef"],
+Cell[7163, 217, 366, 7, 27, "Subitem",ExpressionUUID->"8f2fa070-f52f-4230-9c84-bd729478e41a"],
+Cell[7532, 226, 317, 5, 27, "Subitem",ExpressionUUID->"d7180029-2228-4390-9fcb-9419b31fe3f6"],
+Cell[7852, 233, 311, 5, 27, "Subitem",ExpressionUUID->"1d048c7c-48b9-4623-b59b-d3a136fad312"],
+Cell[8166, 240, 314, 5, 27, "Subitem",ExpressionUUID->"b75f5484-acbd-467e-a4c9-116e534c5d63"],
+Cell[8483, 247, 316, 5, 27, "Subitem",ExpressionUUID->"388bfee5-5f0c-4204-a87d-635685dd4be3"],
+Cell[8802, 254, 316, 5, 27, "Subitem",ExpressionUUID->"6d0770c8-30e8-489d-aa13-97547afeb083"],
+Cell[9121, 261, 323, 5, 27, "Subitem",ExpressionUUID->"2ae30698-e925-46d4-a283-d63150cbe40f"],
+Cell[9447, 268, 342, 5, 27, "Subitem",ExpressionUUID->"b6a22cff-dda4-438f-b9ac-990e13a35469"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9826, 278, 322, 5, 32, "Item",ExpressionUUID->"a58e6ed0-5a8a-48d2-890f-1b6f87faccef"],
+Cell[CellGroupData[{
+Cell[10173, 287, 338, 5, 27, "Subitem",ExpressionUUID->"8acc3aec-031b-4333-8052-a132272bd3a3"],
+Cell[10514, 294, 349, 5, 25, "Subsubitem",ExpressionUUID->"59782d1d-6f82-4051-8c6b-38e0205ea30b"],
+Cell[10866, 301, 346, 5, 25, "Subsubitem",ExpressionUUID->"801ce581-abfb-4878-a061-b8b86a68cd65"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11249, 311, 273, 4, 27, "Subitem",ExpressionUUID->"1d4e149d-1b2d-4ac6-8110-011f16ae0046"],
+Cell[11525, 317, 273, 4, 25, "Subsubitem",ExpressionUUID->"1bb137f0-8d15-4048-b198-71bde2f9c495"],
+Cell[11801, 323, 268, 4, 25, "Subsubitem",ExpressionUUID->"b8aaf39e-a94a-4314-8705-36ddc66b6656"],
+Cell[12072, 329, 349, 5, 25, "Subsubitem",ExpressionUUID->"601955cc-6cc1-4b0d-b59a-57c8bbcdd194"],
+Cell[12424, 336, 314, 5, 25, "Subsubitem",ExpressionUUID->"4dcd42aa-256a-490f-ba5f-a275c1350122"]
+}, Open  ]],
+Cell[12753, 344, 428, 8, 27, "Subitem",ExpressionUUID->"957a5d5b-66a0-4181-a19c-af5b99cf4f07"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13218, 357, 372, 6, 32, "Item",ExpressionUUID->"69f31663-1df3-4738-9ba8-435611c4ccab"],
+Cell[13593, 365, 361, 6, 27, "Subitem",ExpressionUUID->"60d9ff9a-968a-4422-844a-64731870023c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
