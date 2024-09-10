@@ -1,0 +1,157 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5861,        149]
+NotebookOptionsPosition[      4305,        117]
+NotebookOutlinePosition[      4695,        133]
+CellTagsIndexPosition[      4652,        130]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Higher dimensional rule space allows for more paths to given behavior\n\t\
+Less likely to get stuck on a peak\n\tMore difficult to find specific \
+behaviors\nKnowing which direction to go in rule space is computationally \
+irreducible\n\tCan\[CloseCurlyQuote]t determine which direction will have \
+greater fitness without explicitly constructing the evolution of the rule \
+first\n\tDifferent than deep neural networks\n\t\tBased on explicitly \
+computing the direction of greatest fitness increase for every batch\n\t\tCan \
+lead to network getting stuck when certain classes of solutions don\
+\[CloseCurlyQuote]t have clear path forward\n\t\tAlso provides much more \
+efficient path to solution when fitness landscape is sufficiently simple\n\t\t\
+How can we calculate when the fitness landscape is simple enough for \
+backpropagation to be effective?\t\n\t\t\tSample fitness of random points in \
+parameter space (intractable?)\n\t\t\tCalculate some measure of second order \
+gradients? Topological smoothness?\n",
+ StyleBox["\t\t\tTest differences between backpropagation searches and \
+adaptive evolution",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.9348963692032824`*^9, 3.934896503734021*^9}, {
+  3.9348967078590307`*^9, 
+  3.934896810191883*^9}},ExpressionUUID->"4571b5e6-5e8d-4bbd-9461-\
+4a57688ab14f"],
+
+Cell[CellGroupData[{
+
+Cell["Encoding Computations with Wolfram Models", "Section",
+ CellChangeTimes->{{3.93498568563938*^9, 
+  3.934985690679555*^9}},ExpressionUUID->"00be6f81-fd43-48f6-9040-\
+cb8a6064ee61"],
+
+Cell[TextData[StyleBox["Graph theoretic operations", "Subsubsection"]], "Text",
+ CellChangeTimes->{{3.934985748924007*^9, 
+  3.934985800263069*^9}},ExpressionUUID->"0d8b570f-cac1-4af5-89e8-\
+abbc4e61fe70"],
+
+Cell["Find a path between nodes", "Item",
+ CellChangeTimes->{{3.934985801595016*^9, 
+  3.9349858084318237`*^9}},ExpressionUUID->"f33cac93-949a-4235-b665-\
+0ea05642ed8a"],
+
+Cell["Determine if graph contains a cycle", "Item",
+ CellChangeTimes->{{3.934985801595016*^9, 3.934985810982011*^9}, {
+  3.9349858514628696`*^9, 
+  3.934985851463025*^9}},ExpressionUUID->"4dd35bd0-41e0-43ec-a47c-\
+e68042b0f3e6"],
+
+Cell["Find node with most edges", "Item",
+ CellChangeTimes->{{3.934985801595016*^9, 3.934985810982011*^9}, {
+  3.9349858516332912`*^9, 
+  3.934985854915791*^9}},ExpressionUUID->"198ad981-ec02-4993-97a9-\
+0fd1bd01a155"],
+
+Cell[CellGroupData[{
+
+Cell["Ways to find useful rules", "Subsubsection",
+ CellChangeTimes->{{3.934986051098702*^9, 
+  3.934986058095154*^9}},ExpressionUUID->"ec4993e2-8944-457c-8101-\
+1e05f42c5ecf"],
+
+Cell["Exhaustive analysis", "Item",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.93498606503848*^9}},ExpressionUUID->"65122bea-0d37-4504-af71-\
+b2b8c68f9e34"],
+
+Cell["Genetic adaptation\t", "Item",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.934986071104062*^9}},ExpressionUUID->"c5230596-e8ce-42bd-a583-\
+83a8d0a2be40"],
+
+Cell[CellGroupData[{
+
+Cell["Test different encodings of initial conditions", "Item",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.934986096597756*^9}},ExpressionUUID->"ce205582-652d-44cf-a52f-\
+22d1af460b4c"],
+
+Cell["Static graph transformations", "Subitem",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.934986131949321*^9}},ExpressionUUID->"fd683e67-286d-47bd-afd6-\
+bb20a9591082"],
+
+Cell["\<\
+Engineer specific information based on connectivity (arity of loops?)\
+\>", "Subitem",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.934986142454735*^9}},ExpressionUUID->"e556e488-7f3a-4ed6-91a3-\
+1c7c41fe83dd"],
+
+Cell["Use pre-encoded universal rules", "Subitem",
+ CellChangeTimes->{{3.934986059202991*^9, 
+  3.934986112060368*^9}},ExpressionUUID->"b9d2a734-30ef-48c7-8304-\
+f5135009048d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 747},
+WindowMargins->{{Automatic, 8}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"17393d73-245a-407b-bf57-b9988d33e223"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1343, 22, 357, "Text",ExpressionUUID->"4571b5e6-5e8d-4bbd-9461-4a57688ab14f"],
+Cell[CellGroupData[{
+Cell[1926, 46, 185, 3, 67, "Section",ExpressionUUID->"00be6f81-fd43-48f6-9040-cb8a6064ee61"],
+Cell[2114, 51, 205, 3, 40, "Text",ExpressionUUID->"0d8b570f-cac1-4af5-89e8-abbc4e61fe70"],
+Cell[2322, 56, 169, 3, 32, "Item",ExpressionUUID->"f33cac93-949a-4235-b665-0ea05642ed8a"],
+Cell[2494, 61, 228, 4, 32, "Item",ExpressionUUID->"4dd35bd0-41e0-43ec-a47c-e68042b0f3e6"],
+Cell[2725, 67, 218, 4, 32, "Item",ExpressionUUID->"198ad981-ec02-4993-97a9-0fd1bd01a155"],
+Cell[CellGroupData[{
+Cell[2968, 75, 176, 3, 45, "Subsubsection",ExpressionUUID->"ec4993e2-8944-457c-8101-1e05f42c5ecf"],
+Cell[3147, 80, 160, 3, 32, "Item",ExpressionUUID->"65122bea-0d37-4504-af71-b2b8c68f9e34"],
+Cell[3310, 85, 162, 3, 32, "Item",ExpressionUUID->"c5230596-e8ce-42bd-a583-83a8d0a2be40"],
+Cell[CellGroupData[{
+Cell[3497, 92, 188, 3, 32, "Item",ExpressionUUID->"ce205582-652d-44cf-a52f-22d1af460b4c"],
+Cell[3688, 97, 173, 3, 27, "Subitem",ExpressionUUID->"fd683e67-286d-47bd-afd6-bb20a9591082"],
+Cell[3864, 102, 222, 5, 27, "Subitem",ExpressionUUID->"e556e488-7f3a-4ed6-91a3-1c7c41fe83dd"],
+Cell[4089, 109, 176, 3, 27, "Subitem",ExpressionUUID->"b9d2a734-30ef-48c7-8304-f5135009048d"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
